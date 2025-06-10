@@ -1,0 +1,28 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Roles</title>
+</head>
+<body>
+    <h1>Approve Roles</h1>
+
+    {% if users_pending_approval %}
+        <ul>
+            {% for user in users_pending_approval %}
+                <li>
+                    <p>User: {{ user.username }}</p>
+                    <p>Role: {{ user.role }}</p>
+                    <a href="{{ url_for('approve_user', user_id=user.id) }}">Approve User</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users pending approval.</p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

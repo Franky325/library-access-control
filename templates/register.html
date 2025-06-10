@@ -1,0 +1,34 @@
+<!--register.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register Page</h1>
+
+    <h2>Available Roles:</h2>
+    <ul>
+        <li>student</li>
+        <li>faculty</li>
+        <li>librarian</li>
+    </ul>
+
+    <form method = "POST" actions = "">
+        {{ form.hidden_tag() }}
+        <label for="username">Username:</label>
+        {{ form.username }}
+        <label for="password">Password:</label>
+        {{ form.password }}
+        <label for="role">Role:</label>
+        {{ form.role }}
+        {{ form.submit }}
+    </form>
+
+    <p>Your account will be pending approval. Will currently only have student privileges.</p>
+
+    <a href="{{url_for('login')}}">Log in if already signed up!</a>
+</body>
+</html>
